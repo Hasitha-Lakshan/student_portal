@@ -1,1 +1,39 @@
-<p>student-register works!</p>
+<div class="student-register-container mt-5 rounded-3 shadow">
+    <div class="row">
+        <div class="col-4 form-title rounded-start">
+            <div class="text-center">
+                <h1>Student</h1>
+                <h1>Registration</h1>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="p-4">
+                <form class="row g-3">
+                    <div class="col-md-6">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Sakuni">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Weerasinghe">
+                    </div>
+                    <div class="col-12">
+                        <label for="indexNumber" class="form-label">Index Number</label>
+                        <input type="text" class="form-control" id="indexNumber" placeholder="S17XXX">
+                    </div>
+                    <div class="col-12">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                    <div class="text-center">
+                        <span>Already registered? </span>
+                        <a [routerLink]="['/auth/login']" type="button" class="fw-bold link-secondary text-decoration-none">Log In</a>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn btn-dark w-100 py-2">Register Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+.student-register-container {
+    background-color: rgb(255, 255, 255);
+    width: 70%;
+    margin: auto;
+}
+
+.form-title {
+    background-color: rgb(5, 94, 132);
+    color: rgb(255, 255, 255);
+    padding-top: 8%;
+}
+
+@media screen and (max-width: 1000px) {
+    .student-register-container {
+        width: 90%;
+    }
+
+    .form-title {
+        padding-top: 18%;
+    }
+}

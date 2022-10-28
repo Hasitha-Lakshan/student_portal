@@ -6,3 +6,13 @@ body {
 body {
     background-color: rgb(244, 244, 244);
 }
+
+h1 {
+    font-weight: lighter;
+}
+
+@media screen and (max-width: 1000px) {
+    h1 {
+        font-size: calc(1rem + 1.5vw);
+    }
+}

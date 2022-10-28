@@ -1,1 +1,32 @@
-<p>student-login works!</p>
+<div class="student-register-container mt-5 rounded-3 shadow">
+    <div class="row">
+        <div class="col-4 form-title rounded-start">
+            <div class="text-center">
+                <h1>Student</h1>
+                <h1>Login</h1>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="p-4">
+                <form class="row g-3">
+                    <div class="col-12">
+                        <label for="indexNumber" class="form-label">Index Number</label>
+                        <input type="text" class="form-control" id="indexNumber" placeholder="S17XXX">
+                    </div>
+                    <div class="col-12">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                    <div class="text-center">
+                        <span>Not registered? </span>
+                        <a [routerLink]="['/auth/register']" type="button"
+                            class="fw-bold link-secondary text-decoration-none">Register</a>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn btn-dark w-100 py-2">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
