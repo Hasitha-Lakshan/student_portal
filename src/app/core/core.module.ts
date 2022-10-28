@@ -14,6 +14,10 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports : [
+    FooterComponent,
+    HeaderComponent
   ]
 })
 export class CoreModule { }

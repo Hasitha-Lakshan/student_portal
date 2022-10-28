@@ -1,0 +1,8 @@
+.page-header-container {
+    background-color: rgb(5, 94, 132)
+}
+
+.page-header-container h1 {
+    font-weight: lighter;
+    color: rgb(242, 255, 0);
+}

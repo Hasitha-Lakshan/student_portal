@@ -14,6 +14,9 @@ import { WelcomeBannerComponent } from './components/welcome-banner/welcome-bann
   imports: [
     CommonModule,
     HomeRoutingModule
+  ],
+  exports: [
+    HomeComponent
   ]
 })
 export class HomeModule { }

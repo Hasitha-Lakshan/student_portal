@@ -9,14 +9,16 @@ import { StudentRegisterComponent } from './components/student-register/student-
 
 @NgModule({
   declarations: [
-  
     StudentAuthComponent,
-       StudentLoginComponent,
-       StudentRegisterComponent
+    StudentLoginComponent,
+    StudentRegisterComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule
+  ],
+  exports: [
+    StudentAuthComponent
   ]
 })
 export class AuthModule { }
