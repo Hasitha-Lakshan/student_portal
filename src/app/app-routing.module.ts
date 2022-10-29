@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { NotFoundComponent } from './core/pages/not-found/not-found.component';
+import { AuthGuard } from './security/auth.guard';
 import { PreloadingService } from './shared/services/preloading/preloading.service';
 
 const routes: Routes = [
   { path: '', redirectTo: environment.entryRoute, pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule) },
+  { path: 'home', loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule), canActivate: [AuthGuard] },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(mod => mod.AuthModule) },
   { path: '**', component: NotFoundComponent }
 
