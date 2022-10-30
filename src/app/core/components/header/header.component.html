@@ -1,8 +1,9 @@
-<nav class="navbar navbar-light bg-white fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand">
       <img src="{{ assetsUrl }}/icons/fav_icon.ico" alt="" width="30" height="30" class="d-inline-block align-text-top">
       Student Portal
     </a>
+    <a (click)="logOut()" *ngIf="isLogged" class="navbar-brand float-right logout" [routerLink]="['/auth/login']">Logout</a>
   </div>
 </nav>

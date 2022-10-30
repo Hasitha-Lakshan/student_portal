@@ -112,8 +112,10 @@
                             class="fw-bold link-secondary text-decoration-none">Log In</a>
                     </div>
                     <div class="col-12 text-center">
-                        <button (click)="submitStudentData()" type="button" class="btn btn-dark w-100 py-2">Register
-                            Now</button>
+                        <button (click)="submitStudentData()" type="button" class="btn btn-dark w-100 py-2"
+                            [disabled]="studentRegistrationForm.invalid">
+                            Register Now
+                        </button>
                     </div>
                 </form>
             </div>

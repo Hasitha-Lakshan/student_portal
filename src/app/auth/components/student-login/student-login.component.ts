@@ -60,6 +60,7 @@ export class StudentLoginComponent implements OnInit {
       response => {
         if (response && response.status) {
           this.isError = false;
+          this.authenticationService.setLoginStatus(true);
           this.router.navigate(['home']);
         } else {
           this.isError = true;
