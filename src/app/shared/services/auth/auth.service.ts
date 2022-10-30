@@ -22,8 +22,10 @@ export class AuthService {
 
   connectStudentLoginApi(request: StudentLoginRequest): Observable<StudentLoginResponse> {
     return this.http.post<StudentLoginResponse>(this.baseUrl.studentLogin, request, this.httpOptions).pipe(map(response => {
-      localStorage.setItem('jwt', response.authenticationtoken);
-      localStorage.setItem('studentData', JSON.stringify(response.studentData));
+      if (response && response.status) {
+        localStorage.setItem('jwt', response.authenticationtoken);
+        localStorage.setItem('studentData', JSON.stringify(response.studentData));
+      }
       return response;
     }));
   }

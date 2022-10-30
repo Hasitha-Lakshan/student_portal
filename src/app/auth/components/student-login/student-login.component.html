@@ -1,3 +1,14 @@
+<div *ngIf="isStudentRegistered" class="alert alert-success" role="alert">
+    <div class="container text-center">
+        <p>Successfully registered, please login with the given username and password.</p>
+    </div>
+</div>
+<div *ngIf="isError" class="alert alert-danger" role="alert">
+    <div class="container text-center">
+        <p>Username or password is incorrect, please try again.</p>
+    </div>
+</div>
+
 <div class="student-register-container mt-5 rounded-3 shadow">
     <div class="row">
         <div class="col-4 form-title rounded-start">
@@ -8,22 +19,38 @@
         </div>
         <div class="col-8">
             <div class="p-4">
-                <form class="row g-3">
+                <form [formGroup]="studentLoginForm" class="row g-3">
+                    <!-- Username -->
                     <div class="col-12">
                         <label for="indexNumber" class="form-label">Index Number</label>
-                        <input type="text" class="form-control" id="indexNumber" placeholder="S17XXX">
+                        <input [formControlName]="'username'" type="text" class="form-control" id="indexNumber"
+                            placeholder="S17XXX">
+                        <!-- errors -->
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['username'].errors?.['required'] && formControls['username'].touched">
+                            Username is required
+                        </span>
                     </div>
+
+                    <!-- Password -->
                     <div class="col-12">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password">
+                        <input [formControlName]="'password'" type="password" class="form-control" id="password">
+                        <!-- errors -->
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['password'].errors?.['required'] && formControls['password'].touched">
+                            Password is required
+                        </span>
                     </div>
+
                     <div class="text-center">
                         <span>Not registered? </span>
                         <a [routerLink]="['/auth/register']" type="button"
                             class="fw-bold link-secondary text-decoration-none">Register</a>
                     </div>
                     <div class="col-12 text-center">
-                        <button type="button" class="btn btn-dark w-100 py-2">Login</button>
+                        <button (click)="submitLoginData()" type="button" class="btn btn-dark w-100 py-2"
+                            [disabled]="studentLoginForm.invalid">Login</button>
                     </div>
                 </form>
             </div>

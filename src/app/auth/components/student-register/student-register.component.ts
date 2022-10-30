@@ -62,7 +62,7 @@ export class StudentRegisterComponent implements OnInit {
   registerStudent(request: StudentRegisterRequest) {
     this.authService.connectStudentRegisterApi(request).subscribe(
       response => {
-        if (response.status) {
+        if (response && response.status) {
           this.isError = false;
           this.authStateService.isStudentRegistered = true;
           this.router.navigate(['auth/login']);
