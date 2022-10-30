@@ -1,3 +1,9 @@
+<div *ngIf="isError" class="alert alert-danger" role="alert">
+    <div class="container text-center py-2 mb-0">
+        <p> Student registration is failed, please try again.</p>
+    </div>
+</div>
+
 <div class="student-register-container mt-5 rounded-3 shadow">
     <div class="row">
         <div class="col-4 form-title rounded-start">
@@ -8,29 +14,106 @@
         </div>
         <div class="col-8">
             <div class="p-4">
-                <form class="row g-3">
+                <form class="row g-3" [formGroup]="studentRegistrationForm">
+                    <!-- First Name -->
                     <div class="col-md-6">
                         <label for="firstName" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="Sakuni">
+                        <input [formControlName]="'firstName'" type="text" class="form-control" id="firstName"
+                            placeholder="Sakuni">
+                        <!-- errors -->
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['firstName'].errors?.['required'] && formControls['firstName'].touched">
+                            First Name is required
+                        </span>
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['firstName'].errors?.['pattern'] && formControls['firstName'].touched">
+                            Invalid First Name
+                        </span>
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['firstName'].errors?.['maxlength'] && formControls['firstName'].touched">
+                            Exceeds the maximum character size
+                        </span>
                     </div>
+
+                    <!-- Last Name -->
                     <div class="col-md-6">
                         <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Weerasinghe">
+                        <input [formControlName]="'lastName'" type="text" class="form-control" id="lastName"
+                            placeholder="Weerasinghe">
+                        <!-- errors -->
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['lastName'].errors?.['required'] && formControls['lastName'].touched">
+                            Last Name is required
+                        </span>
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['lastName'].errors?.['pattern'] && formControls['lastName'].touched">
+                            Invalid Last Name
+                        </span>
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['lastName'].errors?.['maxlength'] && formControls['lastName'].touched">
+                            Exceeds the maximum character size
+                        </span>
                     </div>
+
+                    <!-- Index Number -->
                     <div class="col-12">
                         <label for="indexNumber" class="form-label">Index Number</label>
-                        <input type="text" class="form-control" id="indexNumber" placeholder="S17XXX">
+                        <input [formControlName]="'indexNumber'" type="text" class="form-control" id="indexNumber"
+                            placeholder="S17XXX">
+                        <!-- errors -->
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['indexNumber'].errors?.['required'] && formControls['indexNumber'].touched">
+                            Index Number is required
+                        </span>
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['indexNumber'].errors?.['pattern'] && formControls['indexNumber'].touched">
+                            Invalid Index Number
+                        </span>
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['indexNumber'].errors?.['maxlength'] && formControls['indexNumber'].touched">
+                            Exceeds the maximum character size
+                        </span>
                     </div>
+
+                    <!-- Password -->
                     <div class="col-12">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password">
+                        <input [formControlName]="'password'" type="password" class="form-control" id="password">
+                        <!-- errors -->
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['password'].errors?.['pattern'] && formControls['password'].touched">
+                            Password must contains 8 characters with at least one number and one Capital letter
+                        </span>
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['password'].errors?.['required'] && formControls['password'].touched">
+                            Password is required
+                        </span>
                     </div>
+
+                    <!-- Password -->
+                    <div class="col-12">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input [formControlName]="'confirmPassword'" type="password" class="form-control"
+                            id="confirmPassword">
+                        <!-- errors -->
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['confirmPassword'].errors?.['required'] && formControls['confirmPassword'].touched">
+                            Password Confirmation is required
+                        </span>
+                        <span class="form-text text-danger"
+                            *ngIf="formControls['confirmPassword'].errors?.['mustMatch']">Confirm
+                            Password does not match
+                        </span>
+                    </div>
+
                     <div class="text-center">
                         <span>Already registered? </span>
-                        <a [routerLink]="['/auth/login']" type="button" class="fw-bold link-secondary text-decoration-none">Log In</a>
+                        <a [routerLink]="['/auth/login']" type="button"
+                            class="fw-bold link-secondary text-decoration-none">Log In</a>
                     </div>
                     <div class="col-12 text-center">
-                        <button type="button" class="btn btn-dark w-100 py-2">Register Now</button>
+                        <button (click)="submitStudentData()" type="button" class="btn btn-dark w-100 py-2">Register
+                            Now</button>
                     </div>
                 </form>
             </div>

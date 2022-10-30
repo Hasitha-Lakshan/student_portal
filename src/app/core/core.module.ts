@@ -3,8 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { JwtModule, JwtModuleOptions } from '@auth0/angular-jwt';
 
-
+const JWT_Module_Options: JwtModuleOptions = {
+  config: { tokenGetter: () => localStorage.getItem('jwt') }
+};
 
 @NgModule({
   declarations: [
@@ -13,9 +16,10 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     NotFoundComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    JwtModule.forRoot(JWT_Module_Options)
   ],
-  exports : [
+  exports: [
     FooterComponent,
     HeaderComponent
   ]

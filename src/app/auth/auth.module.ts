@@ -5,6 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { StudentAuthComponent } from './pages/student-auth/student-auth.component';
 import { StudentLoginComponent } from './components/student-login/student-login.component';
 import { StudentRegisterComponent } from './components/student-register/student-register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { StudentRegisterComponent } from './components/student-register/student-
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
     StudentAuthComponent
